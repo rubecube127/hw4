@@ -1,0 +1,6 @@
+# Backend dependencies for Campus Customs
+fastapi
+uvicorn[standard]
+email-validator
+pydantic-ai-slim[openai]
+python-dotenv
