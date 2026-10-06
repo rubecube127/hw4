@@ -1,0 +1,20 @@
+import type { Product } from './types'
+const API = 'http://localhost:8000'
+export async function getProducts(): Promise<Product[]> { const response = await fetch(`${API}/api/products`); if (!response.ok) throw new Error('Could not load products'); return response.json() }
+export async function getProduct(id: string): Promise<Product> { const response = await fetch(`${API}/api/products/${encodeURIComponent(id)}`); if (!response.ok) throw new Error('Product not found'); return response.json() }
+export const imageUrl = (path: string) => `${API}/media/${path.replace(/^\//, '')}`
+export type AuthUser = { id: number; username: string; first_name: string; last_name: string; email: string }
+async function authRequest(path: string, body: Record<string, string>): Promise<AuthUser> { const response = await fetch(`${API}${path}`, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) }); const data = await response.json(); if (!response.ok) throw new Error(data.detail || 'Something went wrong'); return data }
+export const register = (body: {first_name:string;last_name:string;email:string;password:string;confirm_password:string}) => authRequest('/api/auth/register', body)
+export const login = (body: {email:string;password:string}) => authRequest('/api/auth/login', body)
+export async function updateProfile(id:number, body: {username:string;first_name:string;last_name:string;current_password?:string;new_password?:string}): Promise<AuthUser> { const response=await fetch(`${API}/api/users/${id}`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await response.json();if(!response.ok)throw new Error(data.detail || 'Could not update profile');return data }
+export type ChatProduct = { product_id:string; name:string; garment_type:string; description:string; price:number; image_file_path:string; total_stock:number }
+export type ChatReply = { reply: string; products: ChatProduct[] }
+export type StoredChatMessage = { role:'user'|'assistant'; content:string; products:ChatProduct[]; created_at:string }
+export async function getChatHistory(userId:number): Promise<StoredChatMessage[]> { const response=await fetch(`${API}/api/chat/history/${userId}`); const data=await response.json(); if(!response.ok) throw new Error(data.detail || 'Could not load chat history'); return data }
+export type PrivacySettings = { chat_memory_enabled:boolean }
+export async function getPrivacy(userId:number): Promise<PrivacySettings> { const response=await fetch(`${API}/api/users/${userId}/privacy`); const data=await response.json(); if(!response.ok) throw new Error(data.detail || 'Could not load privacy settings'); return data }
+export async function setPrivacy(userId:number, enabled:boolean): Promise<PrivacySettings> { const response=await fetch(`${API}/api/users/${userId}/privacy`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_memory_enabled:enabled})}); const data=await response.json(); if(!response.ok) throw new Error(data.detail || 'Could not save privacy settings'); return data }
+export async function exportChatHistory(userId:number): Promise<StoredChatMessage[]> { const response=await fetch(`${API}/api/users/${userId}/chat-export`); const data=await response.json(); if(!response.ok) throw new Error(data.detail || 'Could not export chat history'); return data }
+export async function deleteChatHistory(userId:number): Promise<void> { const response=await fetch(`${API}/api/users/${userId}/chat-history`,{method:'DELETE'}); if(!response.ok) {const data=await response.json();throw new Error(data.detail || 'Could not delete chat history')} }
+export async function sendChat(message: string, userId?:number, activeProductId?:string|null): Promise<ChatReply> { const response = await fetch(`${API}/api/chat`, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,user_id:userId,active_product_id:activeProductId||undefined})}); const data=await response.json(); if(!response.ok) throw new Error(data.detail || 'Chat is unavailable'); return data }

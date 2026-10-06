@@ -1,0 +1,18 @@
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Local runtime and dependency artifacts
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+frontend/node_modules/
+frontend/dist/
+dist/
+
+# Private catalog data and runtime audit history
+data/campus_customs.db
+data/products/
+output/audit_trail.json

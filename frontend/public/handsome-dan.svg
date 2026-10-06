@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title">
+  <title>Handsome Dan bulldog illustration</title>
+  <circle cx="90" cy="90" r="84" fill="#dcecf8" stroke="#00356b" stroke-width="6"/>
+  <path d="M42 67 25 42l34 9c9-8 18-12 31-12s22 4 31 12l34-9-17 25c5 10 7 20 5 31-4 28-25 45-53 45S46 126 42 98c-2-11 0-21 5-31Z" fill="#fff" stroke="#00356b" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M47 77c9-13 23-19 43-19s34 6 43 19c-5 5-9 11-10 18H57c-1-7-5-13-10-18Z" fill="#8ba9c3" stroke="#00356b" stroke-width="5"/>
+  <circle cx="67" cy="86" r="6" fill="#00356b"/><circle cx="113" cy="86" r="6" fill="#00356b"/>
+  <path d="M73 112c8-8 26-8 34 0-3 15-31 15-34 0Z" fill="#00356b"/><path d="M77 113h26" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M53 109c-6 4-10 8-14 14M127 109c6 4 10 8 14 14" stroke="#00356b" stroke-width="5" stroke-linecap="round"/>
+</svg>

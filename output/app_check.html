@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Customs — App Check</title>
+  <style>
+    :root { color-scheme: light; --blue: #00356b; --pale: #eef5fa; --line: #c9d9e6; --muted: #5a7185; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--pale); color: #102f4d; font: 16px/1.6 Arial, sans-serif; }
+    main { width: min(1100px, calc(100% - 40px)); margin: 48px auto 72px; }
+    header, section { background: #fff; border: 1px solid var(--line); box-shadow: 0 14px 35px #00356b12; }
+    header { padding: 34px 38px; border-top: 7px solid var(--blue); }
+    .eyebrow { color: var(--blue); font: 700 11px/1.2 monospace; letter-spacing: .12em; text-transform: uppercase; }
+    h1, h2 { color: var(--blue); font-family: Georgia, serif; line-height: 1.1; }
+    h1 { margin: 8px 0 0; font-size: clamp(2.2rem, 5vw, 4rem); }
+    h2 { margin: 0 0 14px; font-size: clamp(1.6rem, 3vw, 2.3rem); }
+    section { margin-top: 28px; padding: 30px; }
+    figure { margin: 22px 0 0; }
+    img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+    figcaption { color: var(--muted); font-size: 13px; margin-top: 9px; }
+    p { max-width: 800px; margin: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Campus Customs · Site testing</div>
+      <h1>App Check</h1>
+    </header>
+
+    <section aria-labelledby="check-1">
+      <h2 id="check-1">Check #1: Inventory Level (Stock and Price)</h2>
+      <p>The screenshot shows the Campus Concierge returning database-backed stock quantities and prices for the requested navy hoodies. It also proves that the matching in-stock products were dynamically loaded into the Concierge picks page as product cards with product imagery and inventory badges.</p>
+      <figure>
+        <img src="app_check_images/check-1-inventory-level.png" alt="Campus Customs Concierge showing hoodie prices and stock, with matching product cards displayed below">
+        <figcaption>Screenshot supplied for Check #1 — the chat response and dynamic product results are visible together.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="check-2">
+      <h2 id="check-2">Check #2: Dynamic Search-Result Cards</h2>
+      <p>The screenshot shows the site automatically rendering six in-stock navy catalogue matches in the Concierge matches grid after the shopper’s search. Each result includes an image, product name, short database-backed description, price, and stock badge.</p>
+      <figure>
+        <img src="app_check_images/check-2-dynamic-search-cards.png" alt="Campus Customs dynamic search results showing navy product cards and the Campus Concierge chat panel">
+        <figcaption>Screenshot supplied for Check #2 — navy search results are displayed as product cards while the concierge remains available.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="check-3">
+      <h2 id="check-3">Check #3: Account Menu and Settings — Usability</h2>
+      <p>The screenshot shows the signed-in shopper’s dropdown opened from the username caret. It provides direct links to My account, Settings, and Log out, making account management and sign-out easy to find.</p>
+      <figure>
+        <img src="app_check_images/check-3-account-menu-settings.png" alt="Campus Customs account dropdown showing My account, Settings, and Log out options">
+        <figcaption>Screenshot supplied for Check #3 — the account menu is open beneath the signed-in username.</figcaption>
+      </figure>
+    </section>
+  </main>
+</body>
+</html>
